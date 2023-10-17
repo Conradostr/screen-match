@@ -2,15 +2,16 @@ import br.com.alura.screenmatch.models.Episodes;
 import br.com.alura.screenmatch.models.Movie;
 import br.com.alura.screenmatch.models.Series;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
 
-        Movie topGun = new Movie();
-        topGun.setName("Top Gun Maverick");
+        Movie topGun = new Movie("Top Gun Maverick", 2022);
         topGun.setDurationInMinutes(131);
-        topGun.setYerRelease(2022);
 
-        Series naruto = new Series();
+
+        Series naruto = new Series("naruto", 1999);
 
         topGun.showTechnicalSheet();
         topGun.evaluate(8.6);
@@ -26,5 +27,16 @@ public class Main {
         episodeOne.setName("Bem vindo de volta");
         episodeOne.setNumber(1);
         episodeOne.setSerie(naruto);
+
+        Movie avatar = new Movie("Avatar", 2022);
+        avatar.setDurationInMinutes(200);
+
+
+        ArrayList<Movie> moviesList = new ArrayList<Movie>();
+
+        moviesList.add(topGun);
+        moviesList.add(avatar);
+
+        System.out.println(moviesList);
     }
 }

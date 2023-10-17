@@ -8,6 +8,10 @@ public class Series extends Title implements Classificable {
     private int minutesPerEpisodes;
     private int totalViews;
 
+    public Series(String name, int yerRelease) {
+        super(name, yerRelease);
+    }
+
     public int getTotalViews() {
         return totalViews;
     }
