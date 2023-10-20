@@ -38,5 +38,7 @@ public class Main {
         moviesList.add(avatar);
 
         System.out.println(moviesList);
+
+
     }
 }

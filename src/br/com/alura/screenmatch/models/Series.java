@@ -66,5 +66,10 @@ public class Series extends Title implements Classificable {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "Serie: " + getName() + " ( " + getYerRelease() + " )";
+    }
 }
 
