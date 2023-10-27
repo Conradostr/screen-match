@@ -1,5 +1,7 @@
 package br.com.alura.screenmatch.models;
 
+import br.com.alura.screenmatch.exception.YearConversionErrorException;
+
 public class Title implements Comparable<Title> {
     private String name;
     private int yerRelease;
@@ -11,6 +13,17 @@ public class Title implements Comparable<Title> {
     public Title(String name, int yerRelease) {
         this.name = name;
         this.yerRelease = yerRelease;
+    }
+
+    public Title(TitleOmdb titleOmdb) {
+        this.name = titleOmdb.title();
+
+        if (titleOmdb.year().length() > 4){
+            throw new YearConversionErrorException("Não consegui converter o ano");
+        }
+
+        this.yerRelease = Integer.valueOf(titleOmdb.year());
+        this.durationInMinutes = Integer.valueOf(titleOmdb.runtime().substring(0,2));
     }
 
     public String getName() {
@@ -67,5 +80,10 @@ public class Title implements Comparable<Title> {
     @Override
     public int compareTo(Title anotherTitle) {
         return this.getName().compareTo(anotherTitle.getName());
+    }
+
+    @Override
+    public String toString() {
+        return "(" + "name: " + name + "Ano de lançamento: " + yerRelease + " )";
     }
 }
